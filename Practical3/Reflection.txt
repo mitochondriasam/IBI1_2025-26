@@ -1,0 +1,2 @@
+I think the version control of git is elegant and Github is a great tool for collaborative coding. I think I have grasped using git and Github after a week's learning.
+
