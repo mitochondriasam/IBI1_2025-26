@@ -1,4 +1,5 @@
-Hello, my name is Rob.
-I like drinking tea and eating chocolate biscuits.
-I am enjoying teaching IBI1 in person again 
+Hello, my name is Sam.
+I like music and I am good at editing videos.
+I am enjoying teaching IBI1 in 25-26 semester.
+I use vim to edit this file.
 I am happy that I can push my repo from Visual Studio Code to GitHub
