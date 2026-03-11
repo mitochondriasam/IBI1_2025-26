@@ -21,12 +21,47 @@ def crcl(age, weight, concentration, gender):
 
 # main function to test the calculate_creatine_clearance function
 def main():
-    age = int(input("Enter the age of the patient in years: "))
-    weight = float(input("Enter the weight of the patient in kg: "))
-    concentration = float(input("Enter the serum creatinine concentration in umol/l: "))
-    gender_input = input("Enter the gender of the patient ('male' or 'female'): ")
-    gender = True if gender_input == "male" else False
-    clearance = crcl(age, weight, concentration, gender)
+    while True:
+        try:
+            age = int(input("Enter the age of the patient in years: "))
+        except ValueError:
+            print("Invalid input. Please enter a valid integer for age.")
+        else:
+            if 0 <= age <= 100:
+                break
+            else:
+                print("Invalid input. Please enter an age between 0 and 100.")
+    
+    while True:
+        try:
+            weight = float(input("Enter the weight of the patient in kg: "))
+        except ValueError:
+            print("Invalid input. Please enter a valid number for weight.")
+        else:            
+            if 20 <= weight <= 80:
+                break
+            else:
+                print("Invalid input. Please enter a weight between 20 and 80 kg.")
+                
+    while True:
+        try:
+            concentration = float(input("Enter the serum creatinine concentration in umol/l: "))
+        except ValueError:
+            print("Invalid input. Please enter a valid number for serum creatinine concentration.")
+        else:
+            if 0 <= concentration <= 100:
+                break
+            else:
+                print("Invalid input. Please enter a serum creatinine concentration between 0 and 100 umol/l.")
+                
+    while True:
+        gender_input = input("Enter the gender of the patient ('male' or 'female'): ")
+        if gender_input in ["male", "female"]:
+            gender = True if gender_input == "male" else False
+            break
+        else:
+            print("Invalid input. Please enter 'male' or 'female'.")
+    clearance = round(crcl(age, weight, concentration, gender), 2)
     print(f"The calculated creatinine clearance is: {clearance} umol/l*min")
           
 if __name__ == "__main__":
