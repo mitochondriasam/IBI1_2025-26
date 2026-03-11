@@ -9,4 +9,27 @@ e = c - b
 print(d, e)
 
 # compare d and e, and print which one is larger
-print("d is larger than e") if d > e else print("e is larger than d")
+if d > e:
+    print("d is larger than e, the population growth is decelerating")
+elif d < e:
+    print("e is larger than d, the population growth is accelerating")
+else:
+    print("d and e are equal, the population growth is constant")
+
+# the population growth is decelerating 
+
+X = True
+Y = False
+
+W = X or Y
+print(f"W is {W}")
+
+# Truth table for X and Y
+
+# And
+# | X | Y | X and Y |
+# |---|---|---------|
+# | True | True | True |
+# | True | False | False |
+# | False | True | False |
+# | False | False | False |
