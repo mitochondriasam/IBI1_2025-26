@@ -24,12 +24,12 @@ Y = False
 W = X or Y
 print(f"W is {W}")
 
-# Truth table for X and Y
+# Truth table for X or Y
 
-# And
-# | X | Y | X and Y |
-# |---|---|---------|
+# Or
+# | X | Y | X or Y |
+# |---|---|--------|
 # | True | True | True |
-# | True | False | False |
-# | False | True | False |
+# | True | False | True |
+# | False | True | True |
 # | False | False | False |
