@@ -1,6 +1,7 @@
 # psudocode for calculating creatine clearance using the Cockcroft-Gault formula
 # var age, weight, concentration, gender
 # var clearance = (140 - age) * weight / (concentration * 72) * (0.85 if female)
+
 def crcl(age, weight, concentration, gender):
     """
     Calculate creatine clearance using the Cockcroft-Gault formula.
@@ -21,7 +22,7 @@ def crcl(age, weight, concentration, gender):
 
 # main function to test the calculate_creatine_clearance function
 def main():
-    while True:
+    while True:     # check the validity of age
         try:
             age = int(input("Enter the age of the patient in years: "))
         except ValueError:
@@ -32,7 +33,7 @@ def main():
             else:
                 print("Invalid input. Please enter an age between 0 and 100.")
     
-    while True:
+    while True:     # check the validity of weight
         try:
             weight = float(input("Enter the weight of the patient in kg: "))
         except ValueError:
@@ -43,7 +44,7 @@ def main():
             else:
                 print("Invalid input. Please enter a weight between 20 and 80 kg.")
                 
-    while True:
+    while True:     # check the validity of serum creatinine concentration
         try:
             concentration = float(input("Enter the serum creatinine concentration in umol/l: "))
         except ValueError:
@@ -54,7 +55,7 @@ def main():
             else:
                 print("Invalid input. Please enter a serum creatinine concentration between 0 and 100 umol/l.")
                 
-    while True:
+    while True:     # calculate the creatinine clearance rate
         gender_input = input("Enter the gender of the patient ('male' or 'female'): ")
         if gender_input in ["male", "female"]:
             gender = True if gender_input == "male" else False
