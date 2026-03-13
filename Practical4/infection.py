@@ -1,4 +1,4 @@
-# psudocode
+# pseudocode
 # var initial = 5
 # var total = 91
 # var rate = 0.4
