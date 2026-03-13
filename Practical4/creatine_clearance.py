@@ -1,5 +1,6 @@
 # psudocode for calculating creatine clearance using the Cockcroft-Gault formula
 # var age, weight, concentration, gender
+# check the validity of age, weight, concentration, gender and catch possible ValueError
 # var clearance = (140 - age) * weight / (concentration * 72) * (0.85 if female)
 
 def crcl(age, weight, concentration, gender):
