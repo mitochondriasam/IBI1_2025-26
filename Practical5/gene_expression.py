@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 
 genes = {"TP53": 12.4, "EGFR": 15.1, "BRCA1": 8.2, "PTEN": 5.3, "ESR1": 10.7}
 print(f"Gene Expression Levels: {genes}")
-genes["MYC"] = 11.6
+genes["MYC"] = 11.6     # Add a new gene and its expression level
 print(f"Updated Gene Expression Levels: {genes}")
 
 # Create a bar chart
 figpath = "Practical5/gene_expression_analysis.png"
-plt.bar(genes.keys(), genes.values())
+plt.bar(genes.keys(), genes.values())   # Gene names on the x-axis and expression levels on the y-axis
 plt.xlabel("Genes")
 plt.ylabel("Expression Level")
 plt.title("Gene Expression Analysis")
@@ -15,7 +15,7 @@ plt.savefig(figpath)
 plt.show()
 
 gene_of_interest = input("Enter a gene to check its expression level: ")
-while not gene_of_interest in genes:
+while not gene_of_interest in genes:    # Validate user input
     print("Gene not found.")
     gene_of_interest = input("Enter a gene to check its expression level: ")
 print(f"{gene_of_interest} expression level: {genes[gene_of_interest]}")
