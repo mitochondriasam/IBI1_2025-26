@@ -20,6 +20,8 @@ print("Number:", f"Low heart rates: {len(low)}", f"Normal heart rates: {len(norm
 labels = 'Low', 'Normal', 'High'
 colors = ['lightskyblue', 'lightgreen', 'lightcoral']
 sizes = [len(low), len(normal), len(high)]
+figpath = "Practical5/heart_rate_distribution.png"
 plt.pie(sizes, labels=labels, colors=colors, autopct='%0.1f%%')
 plt.title('Heart Rate Distribution')
+plt.savefig(figpath)
 plt.show()
