@@ -5,6 +5,8 @@ print(f"Gene Expression Levels: {genes}")
 genes["MYC"] = 11.6
 print(f"Updated Gene Expression Levels: {genes}")
 
+# Create a bar chart
+
 plt.bar(genes.keys(), genes.values())
 plt.xlabel("Genes")
 plt.ylabel("Expression Level")
