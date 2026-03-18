@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 
 heart_rates = [72, 60, 126, 85, 90, 59, 76, 131, 88, 121, 64]
 
-print(f"Patient number: {len(heart_rates)}", f"Mean heart rate: {sum(heart_rates) / len(heart_rates):.2f}", sep="\n")
+print(f"Patient number: {len(heart_rates)}", f"Mean heart rate: {sum(heart_rates) / len(heart_rates):.2f}", sep="\n")   # Calculate and print the number of patients and the mean heart rate, rounded to 2 decimal places
 
 low = []
 normal = []
 high = []
-for i in range(len(heart_rates)):
+for i in range(len(heart_rates)):   # Classify heart rates into low, normal, and high categories
     if  heart_rates[i] < 60:
         low.append(heart_rates[i])
     elif heart_rates[i] <= 120:
