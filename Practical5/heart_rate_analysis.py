@@ -18,7 +18,8 @@ print("Number:", f"Low heart rates: {len(low)}", f"Normal heart rates: {len(norm
 
 # Create a pie chart
 labels = 'Low', 'Normal', 'High'
+colors = ['lightskyblue', 'lightgreen', 'lightcoral']
 sizes = [len(low), len(normal), len(high)]
-plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.pie(sizes, labels=labels, colors=colors, autopct='%0.1f%%')
 plt.title('Heart Rate Distribution')
 plt.show()
