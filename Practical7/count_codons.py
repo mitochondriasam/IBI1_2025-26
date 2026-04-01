@@ -79,4 +79,4 @@ if __name__ == "__main__":
         if orf:
             codon_counts.update(orf[:-1])  # Exclude the stop codon
     make_pie_chart(codon_counts, stop_codon, f'Practical7/codon_usage_pie_chart_{stop_codon}.png')
-    print(f'Codon counts upstream of {stop_codon}: {codon_counts}')      
+    print(f'Codon counts upstream of {stop_codon}:\n {codon_counts}')      
