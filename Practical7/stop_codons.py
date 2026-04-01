@@ -12,10 +12,10 @@ class Gene:
         orfs = []
         for i in range(len(self.sequence)-2):
             codon = self.sequence[i:i+3]
-            if codon == 'AUG':
+            if codon == 'ATG':
                 for j in range(i+3, len(self.sequence)-2, 3):
                     stop_codon = self.sequence[j:j+3]
-                    if stop_codon in ['UAA', 'UAG', 'UGA']:
+                    if stop_codon in ['TAA', 'TAG', 'TGA']:
                         orfs.append(self.sequence[i:j+3])
                         break
         return orfs
@@ -44,15 +44,31 @@ def parse_genes(filename):
 
     return genes
 
+def in_frame_stop_codons(seq):
+    stop_codons = set()
+    for i in range(0, len(seq), 3):
+        codon = seq[i:i+3]
+        if codon in ['TAA', 'TAG', 'TGA']:
+            stop_codons.add(codon)
+    return stop_codons
+
+def write_gene(filename, gene, stop_codons):
+    with open(filename, 'a') as f:
+        f.write(f'>{gene.name}_mRNA; {stop_codons}\n')
+        f.write(f'{gene.sequence}\n')
+        
 
 if __name__ == "__main__":
-    genes = parse_genes('Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa')
-    # print(genes[0])
+    genes_path = 'Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa'
+    output_path = 'Practical7/stop_codons.fa'
+
+    open(output_path, 'w').close()  # Clear the output file before writing
+    genes = parse_genes(genes_path)
     for gene in genes:
         orfs = gene.find_orfs()
-        largest_orf = max(orfs, key=len) if orfs else None
-        print(f'{gene.name}: largest_orf: {largest_orf}, all_orfs: {orfs}')
-    # orfs = genes[0].find_orfs()
-    # largest_orf = max(orfs, key=len) if orfs else None
-    # print(f'largest_orf: {largest_orf}')
-    # print(f'all_orfs: {orfs}')
+        if not orfs:
+            continue
+        stop_codons = set()
+        for orf in orfs:
+            stop_codons.update(in_frame_stop_codons(orf))
+        write_gene(output_path, gene, stop_codons)
