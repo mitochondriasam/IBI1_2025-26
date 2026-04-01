@@ -14,4 +14,5 @@ def find_orfs(seq):
 
 orfs = find_orfs(seq)
 largest_orf = max(orfs, key=len) if orfs else None
-print(largest_orf)
+print(f'largest_orf: {largest_orf}')
+print(f'all_orfs: {orfs}')
