@@ -27,6 +27,9 @@ def total(list_of_food_items, warning_thresholds):
     return result, warning
 
 if __name__ == "__main__":
+    
+    # example usage
+    
     food_items = []
     warning_thresholds = {'calories': 2500, 'fat': 90}  # Example thresholds
     
