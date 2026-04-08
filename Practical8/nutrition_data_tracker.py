@@ -41,7 +41,7 @@ if __name__ == "__main__":
         food_items.append(food_item(name, calories, carbohydrates, protein, fat))
 
     totals, warnings = total(food_items, warning_thresholds)
-    print("\nFood Items Intook:")
+    print("\nFood Items Intake:")
     for item in food_items:
         print(f" - {item}")
     print("\nTotal Nutritional Intake:")
