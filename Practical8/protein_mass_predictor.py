@@ -46,3 +46,4 @@ if __name__ == "__main__":
     protein_sequence = input("Enter the amino acid sequence of the protein: ").upper()
     mass = calculate_mass(protein_sequence)
     print(f"The mass of the protein is: {mass:.2f} amu")
+    
