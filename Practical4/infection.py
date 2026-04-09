@@ -22,5 +22,6 @@ infected = initial
 while infected < total:
     infected = infected + round(infected * rate, 0)  # round the number of infected to the nearest whole number
     day += 1    # count the number of days it takes for the infection to spread to the total population
+    print(f"Day {day}: {infected} infected individuals")
 
 print(f"The day to infect the total population is {day}")

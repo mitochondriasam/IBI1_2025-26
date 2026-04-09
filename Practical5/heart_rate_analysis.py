@@ -14,7 +14,8 @@ for i in range(len(heart_rates)):   # Classify heart rates into low, normal, and
         normal.append(heart_rates[i])
     else:        
         high.append(heart_rates[i])
-print("Number:", f"Low heart rates: {len(low)}", f"Normal heart rates: {len(normal)}", f"High heart rates: {len(high)}", sep="\n")
+print("\nNumber:", f"Low heart rates: {len(low)}", f"Normal heart rates: {len(normal)}", f"High heart rates: {len(high)}", sep="\n")
+print(f"\nThe most frequent heart rate category is: {'Low' if len(low) > len(normal) and len(low) > len(high) else 'Normal' if len(normal) > len(low) and len(normal) > len(high) else 'High'}")   # Determine and print the most frequent heart rate category
 
 # Create a pie chart
 labels = 'Low', 'Normal', 'High'
