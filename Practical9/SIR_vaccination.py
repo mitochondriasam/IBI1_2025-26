@@ -1,6 +1,7 @@
 import json
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import cm
 
 from SIR import Population, SIR_simulation
 
@@ -8,10 +9,10 @@ def plot_SIR_all(infected_counts_list, vaccination_rates, fig_path="SIR_vaccinat
     plt.figure(figsize=(10, 6))
     for i, infected_counts in enumerate(infected_counts_list):
         rate = vaccination_rates[i]
-        plt.plot(infected_counts, label=f'Infected (vaccination rate: {rate * 100:.0f}%)')
+        plt.plot(infected_counts, label=f'Infected (vaccination rate: {rate * 100:.0f}%)', color=cm.viridis(rate))  # Use a colormap to differentiate lines by vaccination rate
     plt.xlabel('Time Steps')
     plt.ylabel('Number of Individuals')
-    plt.title('SIR Model Simulation with Vaccination')
+    plt.title('SIR Model with Different Vaccination Rates')
     plt.legend()
     plt.grid()
     plt.savefig(fig_path)

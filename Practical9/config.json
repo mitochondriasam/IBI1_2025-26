@@ -5,7 +5,7 @@
         "beta": 0.3,
         "gamma": 0.05,
         "times": 1000,
-        "seed": 42
+        "seed": null
     },
 
     "SIR_vaccination": {
