@@ -1,0 +1,8 @@
+{
+    "population": 10000,
+    "infected_initial": 1,
+    "beta": 0.3,
+    "gamma": 0.05,
+    "times": 100,
+    "seed": 42
+}
