@@ -3,6 +3,6 @@
     "infected_initial": 1,
     "beta": 0.3,
     "gamma": 0.05,
-    "times": 100,
+    "times": 1000,
     "seed": 42
 }

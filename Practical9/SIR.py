@@ -14,18 +14,34 @@ class Population:
         return f"Population(N={len(self.population)}, infected={np.sum(self.population == 1)}, recovered={np.sum(self.population == 2)})"
     
     def update(self, beta, gamma):
-        infected_num = np.sum(self.population == 1)
         total = len(self.population)
-        for i in range(total):  
-            if self.population[i] == 1:  # If the individual is infected
-                # Attempt to infect others
-                for j in range(total):
-                    if self.population[j] == 0 and np.random.rand() < beta * infected_num / total:  # If the individual is susceptible and gets infected
-                        self.population[j] = 1
-                # Attempt to recover
-                if np.random.rand() < gamma:  # If the infected individual recovers
-                    self.population[i] = 2
-
+        
+        # Create boolean masks for current states
+        infected_mask = (self.population == 1)  # a boolean array of the same length as self.population, where True indicates infected individuals
+        susceptible_mask = (self.population == 0)   # a boolean array where True indicates susceptible individuals
+        
+        infected_num = np.sum(infected_mask)
+        
+        if infected_num == 0:
+            return  # Simulation over
+        
+        # Standard SIR probability of a susceptible person getting infected
+        prob_infection = beta * infected_num / total
+        
+        # Generate random numbers for all susceptible individuals at once
+        S_count = np.sum(susceptible_mask)
+        new_infections = np.random.rand(S_count) < prob_infection
+        
+        # Map the new infections back to the main array (1 if infected, 0 if still susceptible)
+        self.population[susceptible_mask] = np.where(new_infections, 1, 0)
+        
+        # Generate random numbers for all currently infected individuals
+        # (We use the original infected_mask, so newly infected people don't recover on day 0)
+        new_recoveries = np.random.rand(infected_num) < gamma
+        
+        # Map the recoveries back to the main array (2 if recovered, 1 if still infected)
+        self.population[infected_mask] = np.where(new_recoveries, 2, 1)
+        
     def get_counts(self, state):
         return np.sum(self.population == state)
     
