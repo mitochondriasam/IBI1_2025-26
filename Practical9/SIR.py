@@ -80,7 +80,7 @@ if __name__ == "__main__":
     with open("Practical9/config.json", "r") as f:
         config = json.load(f)
     
-    # set random seed
+    # set random seed to ensure reproducibility
     if config["seed"] is not None:
         np.random.seed(config["seed"])
 
