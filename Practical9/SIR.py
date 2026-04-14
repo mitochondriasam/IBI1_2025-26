@@ -45,10 +45,9 @@ class Population:
     def get_counts(self, state):
         return np.sum(self.population == state)
     
-def SIR_simulation(N, infected, beta, gamma, time_points):
+def SIR_simulation(population, N, infected, beta, gamma, time_points):
     # create population
     # a one-dimensional array of 10000 points, where 0=healthy, 1=infected, 2=recovered
-    population = Population(N, infected)
 
     susceptible_counts = []
     infected_counts = []
@@ -81,17 +80,18 @@ if __name__ == "__main__":
         config = json.load(f)
     
     # set random seed to ensure reproducibility
-    if config["seed"] is not None:
-        np.random.seed(config["seed"])
+    if config["SIR"]["seed"] is not None:
+        np.random.seed(config["SIR"]["seed"])
 
-    # set parameters
-    N = config["population"]
-    infected = config["infected_initial"]
-    beta = config["beta"]
-    gamma = config["gamma"]
-    time_points = config["times"]
+    # get parameters from an external json file for easy modification
+    N = config["SIR"]["population"]
+    infected = config["SIR"]["infected_initial"]
+    beta = config["SIR"]["beta"]
+    gamma = config["SIR"]["gamma"]
+    time_points = config["SIR"]["times"]
     figpath = "Practical9/SIR_plot.png"
 
-    susceptible_counts, infected_counts, recovered_counts = SIR_simulation(N, infected, beta, gamma, time_points)
+    population = Population(N, infected)
+    susceptible_counts, infected_counts, recovered_counts = SIR_simulation(population, N, infected, beta, gamma, time_points)
     plot_SIR(susceptible_counts, infected_counts, recovered_counts, figpath)
 
