@@ -62,7 +62,7 @@ def SIR_simulation(N, infected, beta, gamma, time_points):
     
     return susceptible_counts, infected_counts, recovered_counts
 
-def plot_SIR(susceptible_counts, infected_counts, recovered_counts):
+def plot_SIR(susceptible_counts, infected_counts, recovered_counts, figpath):
     plt.figure(figsize=(10, 6))
     plt.plot(susceptible_counts, label='Susceptible', color='blue')
     plt.plot(infected_counts, label='Infected', color='red')
@@ -72,8 +72,8 @@ def plot_SIR(susceptible_counts, infected_counts, recovered_counts):
     plt.title('SIR Model Simulation')
     plt.legend()
     plt.grid()
-    plt.show()
-    
+    plt.savefig(figpath)
+    plt.close()
     
 if __name__ == "__main__":
     # load config
@@ -90,7 +90,8 @@ if __name__ == "__main__":
     beta = config["beta"]
     gamma = config["gamma"]
     time_points = config["times"]
+    figpath = "Practical9/SIR_plot.png"
 
     susceptible_counts, infected_counts, recovered_counts = SIR_simulation(N, infected, beta, gamma, time_points)
-    plot_SIR(susceptible_counts, infected_counts, recovered_counts)
+    plot_SIR(susceptible_counts, infected_counts, recovered_counts, figpath)
 
