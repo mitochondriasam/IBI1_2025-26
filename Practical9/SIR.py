@@ -84,7 +84,7 @@ if __name__ == "__main__":
     infected = config["SIR"]["infected_initial"]
     beta = config["SIR"]["beta"]
     gamma = config["SIR"]["gamma"]
-    time_points = config["SIR"]["times"]
+    time_points = config["SIR"]["steps"]
     figpath = "Practical9/SIR_plot.png"
 
     population = Population(N, infected)

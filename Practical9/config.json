@@ -4,7 +4,7 @@
         "infected_initial": 1,
         "beta": 0.3,
         "gamma": 0.05,
-        "times": 100
+        "steps": 1000
     },
 
     "SIR_vaccination": {
@@ -12,6 +12,10 @@
     },
     
     "spatial_SIR": {
-        "square_size": 100
+        "square_size": 100,
+        "beta": 0.3,
+        "gamma": 0.05,
+        "steps": 100,
+        "plot_interval": 1
     }
 }
