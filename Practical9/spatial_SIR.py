@@ -98,7 +98,7 @@ def video(path="Practical9/spatial_SIR_simulation.mp4"):
             img_array.append(img)
 
     height, width, layers = img_array[0].shape
-    video = cv2.VideoWriter(path, cv2.VideoWriter_fourcc(*'mp4v'), 10, (width, height))
+    video = cv2.VideoWriter(path, cv2.VideoWriter_fourcc(*'mp4v'), 30, (width, height))
 
     for img in img_array:
         video.write(img)
