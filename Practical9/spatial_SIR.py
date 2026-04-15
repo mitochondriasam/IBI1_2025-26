@@ -12,7 +12,7 @@ class Population:
         outbreak = np.random.choice(range(size), 2)
         self.population[outbreak[0], outbreak[1]] = 1
 
-    def update(self, beta, gamma):
+    def update(self, beta, gamma):  # using matrix operations instead of loops for efficiency
         infected = self.population == 1
                 
         neighbors = np.zeros_like(infected, dtype=int)

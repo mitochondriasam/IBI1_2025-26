@@ -13,7 +13,7 @@ class Population:
     def __repr__(self):
         return f"Population(N={len(self.population)}, infected={np.sum(self.population == 1)}, recovered={np.sum(self.population == 2)})"
     
-    def update(self, beta, gamma):
+    def update(self, beta, gamma):  # using matrix operations instead of loops for efficiency
         total = len(self.population)
         
         # Create boolean masks for current states
