@@ -4,8 +4,7 @@
         "infected_initial": 1,
         "beta": 0.3,
         "gamma": 0.05,
-        "times": 1000,
-        "seed": null
+        "times": 100
     },
 
     "SIR_vaccination": {

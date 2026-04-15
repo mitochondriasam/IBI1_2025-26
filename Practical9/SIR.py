@@ -78,10 +78,6 @@ if __name__ == "__main__":
     # load config
     with open("Practical9/config.json", "r") as f:
         config = json.load(f)
-    
-    # set random seed to ensure reproducibility
-    if config["SIR"]["seed"] is not None:
-        np.random.seed(config["SIR"]["seed"])
 
     # get parameters from an external json file for easy modification
     N = config["SIR"]["population"]
