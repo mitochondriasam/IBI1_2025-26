@@ -13,28 +13,8 @@ class Population:
         self.population[outbreak[0], outbreak[1]] = 1
 
     def update(self, beta, gamma):
-        # infectedIndex = np.where(self.population == 1)
-        # for i in range(len(infectedIndex[0])):
-        #     x = infectedIndex[0][i]
-        #     y = infectedIndex[1][i]
-        #     for xNeighbour in range(x-1, x+2):
-        #         for yNeighbour in range(y-1, y+2):
-        #             if (xNeighbour, yNeighbour) != (x, y):
-        #                 if 0 <= xNeighbour < self.population.shape[0] and 0 <= yNeighbour < self.population.shape[1]:
-        #                     if self.population[xNeighbour, yNeighbour] == 0:
-        #                         self.population[xNeighbour, yNeighbour] = np.random.choice(range(2), 1, p=[1-beta, beta])[0]
-        # # Update recovered individuals
-        # for i in range(self.population.shape[0]):
-        
         infected = self.population == 1
-        
-        # Count infected neighbors without wrapping (no periodic boundaries)
-        # neighbors = (np.roll(infected, 1, 0) + np.roll(infected, -1, 0) +
-        #              np.roll(infected, 1, 1) + np.roll(infected, -1, 1) +
-        #              np.roll(infected, (1, 1), (0, 1)) + np.roll(infected, (-1, 1), (0, 1)) +
-        #              np.roll(infected, (1, -1), (0, 1)) + np.roll(infected, (-1, -1), (0, 1)))
-
-        
+                
         neighbors = np.zeros_like(infected, dtype=int)
         # Horizontal and vertical
         neighbors[:, :-1] += infected[:, 1:]  # right
