@@ -1,0 +1,4 @@
+For Week 3, I got the full score and no remedation is needed.
+For Week 4, there were no errors in the code while some outputs and comments didn't match the requirements. I added output for numbers of individuals every day in `infections.py` and a comment answering "What does this piece of code do?" in `mystery_code.py`.
+For Week 5, `heart_rate_analysis.py` correctly categories the heart rates but did not say which category was the most frequent. So I added a line to output the missing information.
+Remedation for formative feedback were included in commit `1d6e691` with the message "correct according to the feedback".
