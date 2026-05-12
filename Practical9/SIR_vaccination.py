@@ -28,7 +28,7 @@ if __name__ == "__main__":
     infected = config["SIR"]["infected_initial"]
     beta = config["SIR"]["beta"]
     gamma = config["SIR"]["gamma"]
-    time_points = config["SIR"]["times"]
+    time_points = config["SIR"]["steps"]
     vaccination_rate_list = config["SIR_vaccination"]["vaccination_rate"]
     
     infected_counts_list = []
