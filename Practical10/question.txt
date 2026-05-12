@@ -1,0 +1,5 @@
+Question: How has the relationship between DALYs in China and the UK changed over time? Are they becoming more similar or less similar?
+
+Addressed in dalys.py at line 70 (the china_data assignment).
+
+Discussion: The plot shows both countries' DALYs decreasing over time, with China starting higher but converging toward the UK's levels. The average absolute difference is about 15,000, shrinking slightly from 1990-2019, suggesting increasing similarity due to global health improvements like better sanitation and vaccines. This is expected as developing nations like China catch up, though regional factors (e.g., UK's aging population) may slow full convergence.

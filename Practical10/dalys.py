@@ -49,6 +49,7 @@ if __name__ == "__main__":
     plt.plot(country_data['Year'], country_data['DALYs'], marker='o', linestyle='-', color='red')
     plt.xlabel('Year')
     plt.ylabel('DALYs')
+    plt.xticks(country_data['Year'], rotation=45)
     plt.title(f'DALYs Over Time in {max_country_2019}')
     plt.grid(True)
     plt.savefig('Practical10/DALYs_over_time_max_country.png')
@@ -59,8 +60,31 @@ if __name__ == "__main__":
     plt.plot(country_data['Year'], country_data['DALYs'], marker='o', linestyle='-', color='blue')
     plt.xlabel('Year')
     plt.ylabel('DALYs')
+    plt.xticks(country_data['Year'], rotation=45)
     plt.title(f'DALYs Over Time in {min_country_2019}')
     plt.grid(True)
     plt.savefig('Practical10/DALYs_over_time_min_country.png')
     plt.close()
     
+    # Question: How has the relationship between DALYs in China and the UK changed over time?
+    china_data = data[data['Entity'] == 'China']
+    uk_data = data[data['Entity'] == 'United Kingdom']
+
+    # Plot DALYs over time for both countries
+    plt.figure(figsize=(10, 6))
+    plt.plot(china_data['Year'], china_data['DALYs'], label='China', marker='o', color='red')
+    plt.plot(uk_data['Year'], uk_data['DALYs'], label='UK', marker='s', color='blue')
+    plt.xlabel('Year')
+    plt.ylabel('DALYs')
+    plt.title('DALYs Over Time: China vs. UK')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig('Practical10/China_UK_DALYs_comparison.png')
+    plt.close()
+
+    # Summary statistic: Absolute difference in DALYs each year (to measure similarity)
+    merged = pd.merge(china_data[['Year', 'DALYs']], uk_data[['Year', 'DALYs']], on='Year', suffixes=('_China', '_UK'))
+    merged['Difference'] = abs(merged['DALYs_China'] - merged['DALYs_UK'])
+    print(f"\nDALYs Difference (China - UK) over time:\n{merged[['Year', 'Difference']]}")
+    avg_diff = merged['Difference'].mean()
+    print(f"Average absolute difference: {avg_diff:.2f}")
