@@ -14,6 +14,13 @@ class Population:
         return f"Population(N={len(self.population)}, infected={np.sum(self.population == 1)}, recovered={np.sum(self.population == 2)})"
     
     def update(self, beta, gamma):  # using matrix operations instead of loops for efficiency
+        
+        ''' 
+        Update the population state based on the SIR model rules 
+        - Susceptible individuals can become infected based on the number of currently infected individuals and the infection rate (beta).
+        - Infected individuals can recover based on the recovery rate (gamma).
+        '''
+        
         total = len(self.population)
         
         # Create boolean masks for current states

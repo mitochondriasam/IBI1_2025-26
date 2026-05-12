@@ -13,6 +13,13 @@ class Population:
         self.population[outbreak[0], outbreak[1]] = 1
 
     def update(self, beta, gamma):  # using matrix operations instead of loops for efficiency
+        
+        ''' 
+        Update the population state based on the SIR model rules 
+        - Susceptible individuals can become infected based on the number of currently infected individuals and the infection rate (beta).
+        - Infected individuals can recover based on the recovery rate (gamma).
+        '''
+        
         infected = self.population == 1
                 
         neighbors = np.zeros_like(infected, dtype=int)
@@ -54,6 +61,7 @@ class Population:
         plt.close()
 
 def SIR_simulation(population, time_points, beta, gamma, plot_interval):
+
     os.makedirs("Practical9/temp", exist_ok=True)    # Remove existing files in temp
     
     susceptible_counts = []
@@ -70,6 +78,11 @@ def SIR_simulation(population, time_points, beta, gamma, plot_interval):
     return susceptible_counts, infected_counts, recovered_counts
 
 def video(path="Practical9/spatial_SIR_simulation.mp4"):
+
+    ''' 
+    Create a video from the saved images in the temp directory 
+    - concatenate the images in the correct order to show the progression of the SIR simulation over time.
+    '''
 
     img_array = []
     for filename in sorted(os.listdir("Practical9/temp/"), key=lambda x: int(x.split('_')[1].split('.')[0])):
